@@ -3,37 +3,28 @@ jdk: oraclejdk8
 sudo: false
 android:
   components:
-    # The BuildTools version used by your project
-    # The SDK version used to compile your project
-    # Uncomment the lines below if you want to
-    # use the latest revision of Android SDK Tools
-    # Ordering DOES matter
     - tools
     - android-25
     - build-tools-25.0.2
     - platform-tools
-
-    # Additional components
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
     - extra-android-support
 
-    # Specify at least one system image,
-    # if you need to run emulator(s) during your tests
-    #- sys-img-armeabi-v7a-android-22
-    # - sys-img-armeabi-v7a-android-17
-
-  #licenses:
-    #- 'android-sdk-preview-license-.+'
-    #- 'android-sdk-license-.+'
-    #- 'google-gdk-license-.+'
-
-#before_script:
-  #- echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
-  #- emulator -avd test -no-skin -no-audio -no-window &
-  #- android-wait-for-emulator
-  #- adb shell input keyevent 82 &
-
 script:
-  ./gradlew build
+  ./gradlew :volleyEx:build
+
+deploy:
+  - provider: script
+    script: scripts/deploy.sh
+    skip_cleanup: true
+    on:
+      repo: SkygearIO/VolleyEx
+      tags: true
+
+env:
+  global:
+    - BINTRAY_USER="skygeario-builder"
+    # BINTRAY_API_KEY
+    - secure: "VmM8mA/BXp00ILu0Tw2zmtSLyQEAoQThS1b+dIBWy6/2u4OI0bf7I2zJBUXnTV/+P4vfi8uPIewdxnaBO9lIC+Lg9uW+605tbifjhk+QLiKEumBEwyWcybK1/a30JFsyk1yoMmGAMHIn+dp4Xg6XH8F3t26gwJ9M7GK+RBIRKeqDZT0BQJODUaTOvc3MdYjgOgKpQeaALwfNUdCql8ADbgS2HK9LprKjqu0B8h3QG7cP87HLkama5FXVWeLJqxdBlHIjEO3DydEZpCyqXTPcAyXE3KbGlr0ctVBXKz9U8j00cnEsd2tDyrRyDdvvV1F99YCx7LqKnBBfmQOzIAbSIThT7ydZV4YNAEIoVGk4T3LtLpVTH6eLpFN0xeD4CsC4lD4oMnVCMlCi7vvsGpzh2bs0Ao1loxrDzHtDAp5Ff3PeZrMDe7i4cAmQ+W5NvMtr50V1oLwH39b3PU1juwim7LotmwGS5pxDgFMcR29e1NtOMFfflkaSM4zoZr85mA9z3kEo45z3qGyBNr1PN6fh2Nc/IZfPMgDhlmD5RzMvx6xKsOZieCfVMSK9nT0xGT2LHZUy9lJg0toz3IEGvze5MCLcLTamQ04PqcSXdZR6e8Gp9axxiDRrQfGE5kVgGB8IFXvVPDK/oyjQU0D0BTJd05Jy9LcpdlIlUPSq50qWPuU="
