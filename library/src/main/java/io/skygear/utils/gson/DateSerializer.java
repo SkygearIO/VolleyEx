@@ -1,4 +1,4 @@
-package com.androidfung.gson;
+package io.skygear.utils.gson;
 
 import android.util.Log;
 

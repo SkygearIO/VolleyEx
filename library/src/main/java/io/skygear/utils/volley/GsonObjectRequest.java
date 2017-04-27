@@ -1,4 +1,4 @@
-package com.androidfung.volley.toolbox;
+package io.skygear.utils.volley;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
@@ -21,7 +21,6 @@ public class GsonObjectRequest<T> extends JsonRequest<T> {
 
     private final Gson gson = new Gson();
     private final Class<T> clazz;
-    //    private final Map<String, String> headers;
     private final Response.Listener<T> listener;
 
     /**

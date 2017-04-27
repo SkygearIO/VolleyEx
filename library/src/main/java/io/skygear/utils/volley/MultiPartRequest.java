@@ -1,4 +1,4 @@
-package com.androidfung.volley.toolbox;
+package io.skygear.utils.volley;
 
 /*
  * Original from https://github.com/DWorkS/VolleyPlus/blob/d74f4b9529c8a6b7a7afd323963214d69628ad17/library/src/com/android/volley/request/MultiPartRequest.java

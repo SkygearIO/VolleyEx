@@ -1,4 +1,4 @@
-package com.androidfung.volley.toolbox;
+package io.skygear.utils.volley;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonRequest;
-import com.androidfung.gson.DateSerializer;
+import io.skygear.utils.gson.DateSerializer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
